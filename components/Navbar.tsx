@@ -35,6 +35,14 @@ export default function Navbar() {
         <ul className="hidden md:flex items-center gap-8 text-sm">
           <li>
             <button
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="hover:opacity-60 transition-opacity"
+            >
+              Home
+            </button>
+          </li>
+          <li>
+            <button
               onClick={() => scrollTo("work")}
               className="hover:opacity-60 transition-opacity"
             >
@@ -47,14 +55,6 @@ export default function Navbar() {
               className="hover:opacity-60 transition-opacity"
             >
               About
-            </button>
-          </li>
-          <li>
-            <button
-              onClick={() => scrollTo("footer")}
-              className="hover:opacity-60 transition-opacity"
-            >
-              Contact
             </button>
           </li>
         </ul>
@@ -86,13 +86,13 @@ export default function Navbar() {
         </button>
         <ul className="flex flex-col items-center gap-10 text-3xl font-medium">
           <li>
+            <button onClick={() => { setMenuOpen(false); window.scrollTo({ top: 0, behavior: "smooth" }); }}>Home</button>
+          </li>
+          <li>
             <button onClick={() => scrollTo("work")}>Work</button>
           </li>
           <li>
             <button onClick={() => scrollTo("about")}>About</button>
-          </li>
-          <li>
-            <button onClick={() => scrollTo("footer")}>Contact</button>
           </li>
         </ul>
       </div>
