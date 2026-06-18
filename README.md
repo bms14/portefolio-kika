@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Francisca Alemão — Portfolio
 
-## Getting Started
+Portfolio website for graphic designer Francisca Alemão. Built with Next.js 16, Tailwind CSS, and Framer Motion.
 
-First, run the development server:
+## Run locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Add real content
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Images**: Replace the `picsum.photos` URLs in [`data/projects.ts`](data/projects.ts) with your own image paths or URLs.
+- **Text**: Edit names, taglines, bio, and timeline entries directly in the component files or in `data/projects.ts`.
+- **CV PDF**: Drop the real PDF at `public/cv/francisca-alemao-cv.pdf`.
+- **About photo**: Replace the placeholder div in [`components/About.tsx`](components/About.tsx) with a real `<Image>` tag.
 
-## Learn More
+## Add a new project
 
-To learn more about Next.js, take a look at the following resources:
+Edit [`data/projects.ts`](data/projects.ts) and append a new object to the `projects` array:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```ts
+{
+  slug: "my-new-project",          // URL: /projects/my-new-project
+  title: "My New Project",
+  description: "Description text.",
+  tags: ["Branding", "2025"],
+  coverImage: "/images/new-cover.jpg",
+  hoverImage: "/images/new-hover.jpg",
+  images: [
+    "/images/new-1.jpg",
+    "/images/new-2.jpg",
+    "/images/new-3.jpg",
+    "/images/new-4.jpg",
+  ],
+}
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deploy to Vercel
 
-## Deploy on Vercel
+1. **Push to GitHub**
+   ```bash
+   git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git
+   git push -u origin main
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. **Import on Vercel**
+   - Go to [vercel.com](https://vercel.com) → New Project → Import your GitHub repo.
+   - Vercel auto-detects Next.js — no config needed. Click Deploy.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. **Custom domain**
+   - Buy a domain at [vercel.com/domains](https://vercel.com/domains).
+   - In your Vercel project → Settings → Domains → Add your domain.
+   - Follow the DNS instructions shown.
