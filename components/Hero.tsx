@@ -17,7 +17,7 @@ export default function Hero() {
   const targetPos = useRef({ x: -300, y: -300 });
   const currentPos = useRef({ x: -300, y: -300 });
   const rafRef = useRef<number>(0);
-  const moveCountRef = useRef(0);
+  const lastSwapRef = useRef(0);
   const [isTouch, setIsTouch] = useState(true);
   const [thumbVisible, setThumbVisible] = useState(false);
   const [arrowVisible, setArrowVisible] = useState(false);
@@ -108,9 +108,10 @@ export default function Hero() {
       }
       setThumbVisible(true);
       targetPos.current = { x: e.clientX - 90, y: e.clientY - 120 };
-      moveCountRef.current++;
-      if (moveCountRef.current % 18 === 0) {
-        // Pick a random cover different from the current one
+      const now = Date.now();
+      if (now - lastSwapRef.current > 400) {
+        lastSwapRef.current = now;
+        // Pick a random image different from the current one
         const pool = landingImages.filter((c) => c !== lastCoverRef.current);
         const next = pool[Math.floor(Math.random() * pool.length)];
         lastCoverRef.current = next;
@@ -138,14 +139,14 @@ export default function Hero() {
       {/* Description — top left, below navbar */}
       <motion.p
         data-text=""
-        className="absolute top-24 left-6 md:left-12 max-w-[200px] text-sm font-medium text-left leading-relaxed select-none"
+        className="absolute top-24 left-6 md:left-12 text-sm font-medium text-left select-none flex flex-col gap-1"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
-        Communication Designer — Porto.<br />
-        Graphic design, editorial, data viz.<br />
-        Sometimes more than that.
+        <span>Communication Designer — Porto.</span>
+        <span>Graphic design, editorial, data viz.</span>
+        <span>Sometimes more than that.</span>
       </motion.p>
 
       {/* Name — full width, bottom */}
@@ -192,7 +193,7 @@ export default function Hero() {
       {!isTouch && (
         <div
           ref={thumbRef}
-          className="fixed top-0 left-0 w-[180px] h-[240px] pointer-events-none z-40 overflow-hidden"
+          className="fixed top-0 left-0 pointer-events-none z-40"
           style={{
             opacity: thumbVisible ? 1 : 0,
             transition: "opacity 0.2s ease",
@@ -203,7 +204,7 @@ export default function Hero() {
           <img
             src={currentCover}
             alt=""
-            className="w-full h-full object-cover"
+            style={{ maxWidth: "260px", maxHeight: "320px", display: "block" }}
           />
         </div>
       )}

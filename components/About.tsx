@@ -13,7 +13,7 @@ const info = [
   {
     label: "EXPERIENCE",
     value:
-      "Student Support Office, ESAD Matosinhos (2022–present)\nVisual Arts Teacher, Colégio INED (2024–2025)\nGraphic Design freelance, Bicla (2022–present)\nEditorial Design freelance, Day by Day Agenda (2021–2023)",
+      "Student Support Office, ESAD Matosinhos\nVisual Arts Teacher, Colégio INED\nCultural Support, Porto Design Biennale 2025\nGraphic Design freelance",
   },
   {
     label: "LANGUAGES",
