@@ -25,6 +25,15 @@ export default async function ProjectPage({ params }: Props) {
 
   if (!project) notFound();
 
+  // Prepend cover + hover to media if not already present
+  const mediaSrcs = new Set(project.media.map((m) => ("src" in m ? m.src : "")));
+  const extraMedia: import("@/data/projects").MediaItem[] = [];
+  if (!mediaSrcs.has(project.coverImage))
+    extraMedia.push({ type: "image", src: project.coverImage });
+  if (project.hoverImage !== project.coverImage && !mediaSrcs.has(project.hoverImage))
+    extraMedia.push({ type: "image", src: project.hoverImage });
+  const fullMedia = [...extraMedia, ...project.media];
+
   return (
     <div className="min-h-screen bg-white text-black">
 
@@ -91,7 +100,7 @@ export default async function ProjectPage({ params }: Props) {
       </div>
 
       {/* ── Media grid (handles both desktop + mobile internally) ── */}
-      <ProjectMedia media={project.media} />
+      <ProjectMedia media={fullMedia} />
     </div>
   );
 }
