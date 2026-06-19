@@ -45,7 +45,7 @@ export default function About() {
           viewport={{ once: true, margin: "-80px" }}
         >
           <Image
-            src="/cv/me.jpg"
+            src="/cv/me.JPG"
             alt="Francisca Alemão"
             fill
             className="object-cover"
