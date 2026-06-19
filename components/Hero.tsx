@@ -31,6 +31,14 @@ export default function Hero() {
     );
   }, []);
 
+  // Preload all landing images so swaps are instant
+  useEffect(() => {
+    landingImages.forEach((src) => {
+      const img = new window.Image();
+      img.src = src;
+    });
+  }, []);
+
   // Show arrow only when at the very top of the page
   useEffect(() => {
     const check = () => setArrowVisible(window.scrollY < 50);
