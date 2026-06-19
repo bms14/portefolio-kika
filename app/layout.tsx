@@ -11,7 +11,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Francisca Alemão — Graphic Designer",
   description:
-    "Portfolio of Francisca Alemão, Graphic Designer based in [City].",
+    "Portfolio of Francisca Alemão, Graphic Designer based in Porto.",
 };
 
 export default function RootLayout({
