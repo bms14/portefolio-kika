@@ -117,7 +117,7 @@ export default function Hero() {
       setThumbVisible(true);
       targetPos.current = { x: e.clientX - 90, y: e.clientY - 120 };
       const now = Date.now();
-      if (now - lastSwapRef.current > 150) {
+      if (now - lastSwapRef.current > 350) {
         lastSwapRef.current = now;
         // Pick a random image different from the current one
         const pool = landingImages.filter((c) => c !== lastCoverRef.current);
