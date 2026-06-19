@@ -6,10 +6,10 @@ export default function Footer() {
     >
       <p className="text-sm">Francisca Alemão © 2026</p>
       <a
-        href="mailto:hello@franciscaalemao.com"
+        href="mailto:franciscacalemao@gmail.com"
         className="text-sm hover:opacity-60 transition-opacity"
       >
-        hello@franciscaalemao.com
+        franciscacalemao@gmail.com
       </a>
     </footer>
   );

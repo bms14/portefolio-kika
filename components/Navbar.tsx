@@ -54,7 +54,7 @@ export default function Navbar() {
               onClick={() => scrollTo("about")}
               className="hover:opacity-60 transition-opacity"
             >
-              About
+              +Info
             </button>
           </li>
         </ul>
@@ -92,7 +92,7 @@ export default function Navbar() {
             <button onClick={() => scrollTo("work")}>Work</button>
           </li>
           <li>
-            <button onClick={() => scrollTo("about")}>About</button>
+            <button onClick={() => scrollTo("about")}>+Info</button>
           </li>
         </ul>
       </div>

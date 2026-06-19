@@ -7,7 +7,7 @@ export default function Work() {
       <p className="text-xs font-bold uppercase tracking-widest mb-10">
         Work
       </p>
-      <div className="flex flex-nowrap gap-5 overflow-x-auto pb-4 no-scrollbar">
+      <div className="flex flex-wrap gap-5">
         {projects.map((project) => (
           <ProjectCard key={project.slug} project={project} />
         ))}
